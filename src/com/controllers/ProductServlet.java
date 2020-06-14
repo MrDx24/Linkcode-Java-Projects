@@ -24,7 +24,7 @@ import com.model.Product;
 @WebServlet("/ProductServlet")
 public class ProductServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+
 	List<Product> lst;
     /**
      * @see HttpServlet#HttpServlet()
@@ -39,7 +39,7 @@ public class ProductServlet extends HttpServlet {
 	 */
 	public void init(ServletConfig config) throws ServletException {
 		// TODO Auto-generated method stub
-		lst = new ArrayList<>(); 
+		lst = new ArrayList<>();
 	}
 
 	/**
@@ -51,20 +51,21 @@ public class ProductServlet extends HttpServlet {
 		int checkValue = Integer.parseInt(request.getParameter("productQuantity"));
 		if (check==null || checkValue <=0) {
 			response.sendRedirect("Error.jsp");
-		} 
+		}
 		else //else if valid then continues//
 		{
 		PrintWriter out = response.getWriter();
 		//Getting values from jsp file//
-		int productId = Integer.parseInt(request.getParameter("productId")); 
-		String productName = request.getParameter("productName"); 
-		int productQuantity = Integer.parseInt(request.getParameter("productQuantity")); 
-		double productPrice = Double.parseDouble(request.getParameter("productPrice")); 
+		String name = request.getParameter("name");
+		int productId = Integer.parseInt(request.getParameter("productId"));
+		String productName = request.getParameter("productName");
+		int productQuantity = Integer.parseInt(request.getParameter("productQuantity"));
+		double productPrice = Double.parseDouble(request.getParameter("productPrice"));
 		System.out.println("Accepted");
 		//Checking if quantity value is invalid//
-		
 
-			Product p1 = new Product(productId, productName, productQuantity, productPrice);
+
+			Product p1 = new Product(name, productId, productName, productQuantity, productPrice);
 			lst.add(p1);
 			for (int i = 0; i < lst.size(); i++) {
 			System.out.println("-----------------------------");
@@ -90,7 +91,7 @@ public class ProductServlet extends HttpServlet {
 			out.println("</html>");
 		}
 	}
-		
+
 
 }
 
@@ -115,7 +116,7 @@ if(lst.contains(p1)) {
 }
 else {
 	System.out.println("in else");
-	
+
 	lst.add(p1);
 }*/
 
@@ -127,10 +128,10 @@ else {
 
 /*//			RequestDispatcher rd = request.getRequestDispatcher("DisplayCart.jsp");
 //		session.setAttribute("request", request);
-		
-		
+
+
 //		rd.forward(request, response);
 //		session.setAttribute("out", out);;
-		
+
 //		response.sendRedirect("CartServlet");
-*/			
+*/

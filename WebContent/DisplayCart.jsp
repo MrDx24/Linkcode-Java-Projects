@@ -2,9 +2,9 @@
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    
+
 <% ArrayList list = (ArrayList)session.getAttribute("products");
-	
+
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -29,6 +29,9 @@
 <thead class="thead-dark">
 <tr>
 		<th>
+			Name
+		</th>
+		<th>
 			ProductId
 		</th>
 		<th>
@@ -51,9 +54,10 @@
 <% for (int i = 0; i < list.size() ; i++) { %>
 	<tr>
 		<% Product p = (Product)list.get(i); %>
+		<td><%= p.getName() %></td>
 		<td><%= p.getProductId() %></td>
 		<td><%= p.getProductName() %></td>
-		<td><%= p.getProductQuantity() %></td>                  
+		<td><%= p.getProductQuantity() %></td>
 		<td>Rs <%= p.getProductPrice() %></td>
 	</tr>
 <% } } %>

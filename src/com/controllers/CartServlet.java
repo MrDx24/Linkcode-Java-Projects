@@ -23,7 +23,7 @@ import com.model.Product;
 @WebServlet("/CartServlet")
 public class CartServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -32,39 +32,41 @@ public class CartServlet extends HttpServlet {
         super();
         // TODO Auto-generated constructor stub
     }
-    
+
 //    public void init(ServletConfig config) throws ServletException {
 //		// TODO Auto-generated method stub
-//    	
+//
 //    	bills = new ArrayList<>();
-//		
+//
 //	}
 
-	
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
+
 		HttpSession session = request.getSession(true);
 		ArrayList<Product> products =  new ArrayList<>();
 
 		products = (ArrayList)session.getAttribute("products");
 		System.out.println("In CartServlet : "+products.get(0).getProductName());
 		double total=0,gst,finalTotal;
+		String name = null;
 //		List<Product> lst=(List<Product>) session.getAttribute("shop");
 		for(Product p:products){
 			total=total+(p.getProductPrice()*p.getProductQuantity());
+			name = p.getName();
 		}
 		gst=total*0.12;
 		finalTotal=gst+total;
-		
-		Bill b=new Bill(total, gst, gst, finalTotal);
+
+		Bill b=new Bill(name, total, gst, gst, finalTotal);
 		session.setAttribute("bill",b);
 //		RequestDispatcher rd = request.getRequestDispatcher("Bill.jsp");
 //		request.setAttribute("bill",b);
 //		rd.forward(request, response);
 		response.sendRedirect("Bill.jsp");
-		
-		
+
+
 
 	}
 
@@ -83,11 +85,11 @@ public class CartServlet extends HttpServlet {
 	double total = p.getProductPrice() * p.getProductQuantity();
 	double cgst= total*0.09, sgst = total*0.09;
 	double finalBill = total+cgst+sgst;
-	
+
 	Bill bill = new Bill(total,cgst,sgst,finalBill);
-	bills.add(bill); 
-	
-	
+	bills.add(bill);
+
+
 }
 
 PrintWriter out = response.getWriter();
@@ -119,18 +121,18 @@ out.println("</html>");
 			gst=total*0.12;
 			finalTotal=gst+total;
 			b=new Bill(total, gst, gst, finalTotal);
-			
+
 		}
 		bills.add(b);
 		System.out.println(bills.get(0));
 		RequestDispatcher rd = request.getRequestDispatcher("Bill.jsp");
 		request.setAttribute("bill",bills);
 //		response.sendRedirect("Bill.jsp");
-		
-//		
+
+//
 		request.setAttribute("products", products);
 //		response.sendRedirect("DisplayCart.jsp");
 		rd.forward(request, response);
-		
-		
+
+
 */
