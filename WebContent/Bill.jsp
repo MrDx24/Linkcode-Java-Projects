@@ -23,8 +23,8 @@
 		} 
 	%>
 
-	<h1 align="center">---------------------BILL------------</h1>
-	<table class="table table-striped table-bordered" align="center">
+	<h1 align="center">---------------------BILL----------------------</h1>
+	<%-- <table class="table table-striped table-bordered" align="center">
 		<thead class="thead-dark">
 			<tr>
 				<th>
@@ -43,12 +43,30 @@
 		</thead>
 		<tbody>
 			<tr>
-				<td> Rs <%= b.getTotal() %> </td>
-				<td> Rs <%= b.getCgst() %> </td>
-				<td> Rs <%= b.getSgst() %> </td>
-				<td> Rs <%= b.getFinalBill() %> </td>
+				<td style="font-weight: bold; font-size: 20px; " > Rs <%= b.getTotal() %> </td>
+				<td style="font-style: italic; font-size: 20px;"> Rs <%= b.getCgst() %> </td>
+				<td style="font-style: italic; font-size: 20px; "> Rs <%= b.getSgst() %> </td>
+				<td style="font-weight: bold; font-size: 20px; "> Rs <%= b.getFinalBill() %> </td>
 			</tr>
 		</tbody>
-	</table>
+	</table> --%>
+	
+	
+	<div class="row">
+		<div class="container" style=" border-radius:5px; width: 400px; height: 300px; box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+			<h3>Price Details : </h3>
+			<%-- <h4>Total &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <b><%= b.getTotal() %></b></h4>
+			<h4>CGST &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <b><%= b.getCgst() %></b></h4>
+			<h4>SGST &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <b><%= b.getSgst() %></b></h4>
+			<h4>Final Bill : <b><%= b.getFinalBill() %></b></h4><br> --%>
+			<table class="table">
+				<tr><td>Bag Total : </td><td style="color: blue; font-weight: bold;"><%= b.getTotal() %></td></tr>
+				<tr><td>CGST : </td><td style="color: blue; font-weight: bold;"><%= b.getCgst() %></td></tr>
+				<tr><td>SGST : </td><td style="color: blue; font-weight: bold;"><%= b.getSgst() %></td></tr>
+				<tr><td>Final Bill : </td><td style="color: green; font-weight: bold;"><%= b.getFinalBill() %></td></tr>
+			</table>
+			<button class="btn btn-success right">Place the Order</button>
+		</div>
+	</div>
 </body>
 </html>

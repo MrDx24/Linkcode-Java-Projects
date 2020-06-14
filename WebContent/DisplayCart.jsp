@@ -53,8 +53,8 @@
 		<% Product p = (Product)list.get(i); %>
 		<td><%= p.getProductId() %></td>
 		<td><%= p.getProductName() %></td>
-		<td>Rs <%= p.getProductPrice() %></td>                  
-		<td><%= p.getProductQuantity() %></td>
+		<td><%= p.getProductQuantity() %></td>                  
+		<td>Rs <%= p.getProductPrice() %></td>
 	</tr>
 <% } } %>
 
