@@ -56,6 +56,7 @@ public class ProductServlet extends HttpServlet {
 		{
 		PrintWriter out = response.getWriter();
 		//Getting values from jsp file//
+		String name = request.getParameter("name"); 
 		int productId = Integer.parseInt(request.getParameter("productId")); 
 		String productName = request.getParameter("productName"); 
 		int productQuantity = Integer.parseInt(request.getParameter("productQuantity")); 
@@ -64,7 +65,7 @@ public class ProductServlet extends HttpServlet {
 		//Checking if quantity value is invalid//
 		
 
-			Product p1 = new Product(productId, productName, productQuantity, productPrice);
+			Product p1 = new Product(name, productId, productName, productQuantity, productPrice);
 			lst.add(p1);
 			for (int i = 0; i < lst.size(); i++) {
 			System.out.println("-----------------------------");

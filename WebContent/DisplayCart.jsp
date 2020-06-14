@@ -29,6 +29,9 @@
 <thead class="thead-dark">
 <tr>
 		<th>
+			Name
+		</th>
+		<th>
 			ProductId
 		</th>
 		<th>
@@ -51,6 +54,7 @@
 <% for (int i = 0; i < list.size() ; i++) { %>
 	<tr>
 		<% Product p = (Product)list.get(i); %>
+		<td><%= p.getName() %></td>
 		<td><%= p.getProductId() %></td>
 		<td><%= p.getProductName() %></td>
 		<td><%= p.getProductQuantity() %></td>                  

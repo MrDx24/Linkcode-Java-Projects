@@ -43,10 +43,14 @@
 	<div class="row">
 	<h2 style="text-align: center;">Stationary Products</h2> <hr> 
 	<%! ProductDetails pd = new ProductDetails(); %>
+	
 	<% for(int i=0; i<8;i++) { %>
 		<div class="row cont">
 			<form action="ProductServlet" method="post" class="formGroup ">
 				<div class="formGroup">
+					<label for="name">Enter your name : </label><br> 
+					<input id="name" class="form-control" type="text" name="name" required="required">
+					
 					<label for="productId">Product Id</label><br> 
 					<input id="productId" class="form-control" type="text" name="productId" value=<%= pd.pid[i] %> readonly>
 	

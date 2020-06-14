@@ -53,19 +53,20 @@
 	
 	
 	<div class="row">
-		<div class="container" style=" border-radius:5px; width: 400px; height: 300px; box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+		<div class="container" style=" border-radius:5px; width: 400px; height: 400px; box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
 			<h3>Price Details : </h3>
 			<%-- <h4>Total &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <b><%= b.getTotal() %></b></h4>
 			<h4>CGST &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <b><%= b.getCgst() %></b></h4>
 			<h4>SGST &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <b><%= b.getSgst() %></b></h4>
 			<h4>Final Bill : <b><%= b.getFinalBill() %></b></h4><br> --%>
 			<table class="table">
+				<tr><td>Bag Total : </td><td style="color: blue; font-weight: bold;"><%= b.getName() %></td></tr>
 				<tr><td>Bag Total : </td><td style="color: blue; font-weight: bold;"><%= b.getTotal() %></td></tr>
 				<tr><td>CGST : </td><td style="color: blue; font-weight: bold;"><%= b.getCgst() %></td></tr>
 				<tr><td>SGST : </td><td style="color: blue; font-weight: bold;"><%= b.getSgst() %></td></tr>
 				<tr><td>Final Bill : </td><td style="color: green; font-weight: bold;"><%= b.getFinalBill() %></td></tr>
 			</table>
-			<button class="btn btn-success right">Place the Order</button>
+			<a class="btn btn-success right" href="PlaceOrder.jsp">Place the Order</a>
 		</div>
 	</div>
 </body>

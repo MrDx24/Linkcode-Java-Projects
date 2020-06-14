@@ -50,14 +50,16 @@ public class CartServlet extends HttpServlet {
 		products = (ArrayList)session.getAttribute("products");
 		System.out.println("In CartServlet : "+products.get(0).getProductName());
 		double total=0,gst,finalTotal;
+		String name = null;
 //		List<Product> lst=(List<Product>) session.getAttribute("shop");
 		for(Product p:products){
 			total=total+(p.getProductPrice()*p.getProductQuantity());
+			name = p.getName();
 		}
 		gst=total*0.12;
 		finalTotal=gst+total;
 		
-		Bill b=new Bill(total, gst, gst, finalTotal);
+		Bill b=new Bill(name, total, gst, gst, finalTotal);
 		session.setAttribute("bill",b);
 //		RequestDispatcher rd = request.getRequestDispatcher("Bill.jsp");
 //		request.setAttribute("bill",b);
