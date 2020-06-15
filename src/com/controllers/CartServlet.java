@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.dao.ProductDao;
 import com.model.Bill;
 import com.model.Product;
 
@@ -61,10 +62,21 @@ public class CartServlet extends HttpServlet {
 
 		Bill b=new Bill(name, total, gst, gst, finalTotal);
 		session.setAttribute("bill",b);
-//		RequestDispatcher rd = request.getRequestDispatcher("Bill.jsp");
+
+		List<Bill> lst=new ArrayList<>();
+		lst.add(b);
+		
+		ProductDao dobj=new ProductDao();
+		int n=dobj.save(lst);
+		
+		//if(n>0){
+			response.sendRedirect("Bill.jsp");
+	//	}		else{
+			//response.sendRedirect("D.jsp");
+		//}
+		//		RequestDispatcher rd = request.getRequestDispatcher("Bill.jsp");
 //		request.setAttribute("bill",b);
 //		rd.forward(request, response);
-		response.sendRedirect("Bill.jsp");
 
 
 
