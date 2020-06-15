@@ -62,7 +62,7 @@ public class CartServlet extends HttpServlet {
 
 		Bill b=new Bill(name, total, gst, gst, finalTotal);
 		session.setAttribute("bill",b);
-
+//
 		List<Bill> lst=new ArrayList<>();
 		lst.add(b);
 		
